@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WHAT'S POPPIN', PINOY: 1990s vs. Present PH Popular Culture - Milestone 2 Dashboard</title>
+  <meta name="description" content="Milestone 2: Interactive Progress & Milestone Update Dashboard for 'WHAT'S POPPIN', PINOY: 1990s vs. Present PH Popular Culture' by Rachel Ann Benzon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --retro-bg: #008080;
+      --retro-gray: #c0c0c0;
+      --retro-dark: #000000;
+      --retro-gray-shadow: #808080;
+      --retro-light: #ffffff;
+      --retro-blue-1: #000080;
+      --retro-blue-2: #1084d0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--retro-bg);
+      background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0),
+        radial-gradient(rgba(0, 0, 0, 0.15) 1px, #008080 0);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+      color: #111827;
+      min-height: 100vh;
+      padding: 16px 12px 24px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .font-pixel {
+      font-family: 'VT323', monospace;
+    }
+
+    /* Classic Windows 95/98 3D Beveled Borders */
+    .retro-window {
+      background-color: var(--retro-gray);
+      border-top: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+      border-right: 2px solid #000000;
+      border-bottom: 2px solid #000000;
+      box-shadow: inset 1px 1px 0px #dfdfdf, inset -1px -1px 0px #808080;
+      width: 100%;
+      max-width: 1140px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .retro-sunken {
+      background-color: #ffffff;
+      border-top: 2px solid #808080;
+      border-left: 2px solid #808080;
+      border-right: 2px solid #ffffff;
+      border-bottom: 2px solid #ffffff;
+      box-shadow: inset 1px 1px 0px #000000, inset -1px -1px 0px #dfdfdf;
+    }
+
+    .retro-btn {
+      background-color: var(--retro-gray);
+      border-top: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+      border-right: 2px solid #000000;
+      border-bottom: 2px solid #000000;
+      box-shadow: inset 1px 1px 0px #dfdfdf, inset -1px -1px 0px #808080;
+      cursor: pointer;
+      user-select: none;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #111827;
+      text-decoration: none;
+    }
+
+    .retro-btn:active, .retro-btn.active {
+      border-top: 2px solid #000000;
+      border-left: 2px solid #000000;
+      border-right: 2px solid #ffffff;
+      border-bottom: 2px solid #ffffff;
+      box-shadow: inset 1px 1px 0px #808080;
+      background-color: #d4d0c8;
+    }
+
+    .retro-titlebar {
+      background: linear-gradient(90deg, #000080, #1084d0);
+      color: #ffffff;
+      padding: 5px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    .retro-title-buttons {
+      display: flex;
+      gap: 3px;
+    }
+
+    .retro-title-btn {
+      width: 22px;
+      height: 20px;
+      background: #c0c0c0;
+      border-top: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+      border-right: 2px solid #000000;
+      border-bottom: 2px solid #000000;
+      font-size: 11px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #000;
+    }
+
+    .retro-menubar {
+      background-color: #c0c0c0;
+      border-bottom: 1px solid #808080;
+      padding: 4px 10px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .retro-menubar-items {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .retro-header-banner {
+      background-color: #f3efe6;
+      border-bottom: 2px solid #808080;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .retro-header-banner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .retro-tabs-strip {
+      background-color: #c0c0c0;
+      padding: 8px 12px 0 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      border-bottom: 2px solid #ffffff;
+    }
+
+    .retro-tab-item {
+      background-color: #afafaf;
+      border-top: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+      border-right: 2px solid #000000;
+      border-bottom: none;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      color: #333333;
+      transition: background 0.1s;
+    }
+
+    .retro-tab-item.active {
+      background-color: #c0c0c0;
+      color: #000000;
+      margin-bottom: -2px;
+      padding-bottom: 9px;
+      z-index: 2;
+    }
+
+    .retro-canvas {
+      background-color: #d8d4cb;
+      padding: 20px;
+      min-height: 520px;
+    }
+
+    .lens-card {
+      background-color: #c8c4bc;
+      margin-bottom: 20px;
+    }
+
+    .lens-header {
+      background-color: #1e293b;
+      color: #ffffff;
+      padding: 6px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .lens-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .lens-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .lens-col {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .col-past {
+      background-color: #fcf9f2;
+    }
+
+    .col-present {
+      background-color: #f4f8fc;
+    }
+
+    .lens-evolution {
+      background-color: #e4dfd5;
+      padding: 12px 16px;
+      border-top: 1px solid #808080;
+      font-size: 13px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .retro-statusbar {
+      background-color: #c0c0c0;
+      border-top: 2px solid #808080;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: #333333;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .taskbar {
+      width: 100%;
+      max-width: 1140px;
+      background-color: #c0c0c0;
+      border-top: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+      border-right: 2px solid #000000;
+      border-bottom: 2px solid #000000;
+      padding: 3px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    /* Modal Backdrop */
+    .retro-modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .retro-modal-backdrop.show {
+      display: flex;
+    }
+
+    .retro-modal-window {
+      background-color: #c0c0c0;
+      width: 100%;
+      max-width: 650px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .modal-body {
+      padding: 16px;
+      overflow-y: auto;
+      background-color: #dcd8cf;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+      }
+      .no-print, .retro-tabs-strip, .taskbar, .retro-menubar, .filter-strip {
+        display: none !important;
+      }
+      .retro-window {
+        border: none !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+      }
+      .tab-content {
+        display: block !important;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Workstation Window -->
+  <main class="retro-window">
+    
+    <!-- Titlebar -->
+    <div class="retro-titlebar">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="color: #ffd700;">📺</span>
+        <span class="font-pixel" style="font-size: 18px; font-weight: bold; letter-spacing: 1px;">
+          MILESTONE 2: WHAT'S POPPIN', PINOY — Digital Museum Progress Update
+        </span>
+      </div>
+      <div class="retro-title-buttons no-print">
+        <button class="retro-title-btn" onclick="toggleAudio()" id="soundBtn" title="Toggle 90s Sound Effects">🔊</button>
+        <button class="retro-title-btn" onclick="window.print()" title="Print / Save PDF">🖨️</button>
+        <button class="retro-title-btn" onclick="alert('Workstation running in active museum review mode.')">✕</button>
+      </div>
+    </div>
+
+    <!-- Retro Menubar -->
+    <div class="retro-menubar no-print">
+      <div class="retro-menubar-items">
+        <span><strong>File:</strong> <a href="javascript:window.print()" style="color: inherit; text-decoration: underline;">Print / Save PDF Report</a></span>
+        <span><strong>Theme:</strong> Late-90s PC / Windows 98 Workstation</span>
+        <span><strong>Course:</strong> Philippine Popular Culture</span>
+      </div>
+      <div>
+        <span><strong>Author:</strong> Rachel Ann Benzon (Individual Project Presentation)</span>
+      </div>
+    </div>
+
+    <!-- Header Banner -->
+    <header class="retro-header-banner">
+      <div>
+        <div style="font-size: 11px; text-transform: uppercase; font-weight: 800; color: #006666; letter-spacing: 1.5px; margin-bottom: 4px;">
+          ✨ ACADEMIC PROGRESS & MILESTONE UPDATE DASHBOARD
+        </div>
+        <h1 style="font-size: 24px; font-weight: 800; color: #0f172a; line-height: 1.2;">
+          WHAT'S POPPIN', PINOY: 1990s vs. Present PH Popular Culture
+        </h1>
+        <p style="font-size: 14px; color: #334155; margin-top: 4px; max-width: 850px; line-height: 1.5;">
+          The Influence of the Past to Current Patterns in PH Popular Culture (1990s–2000s vs. Present Day).
+          A comprehensive comparative framework analyzing cultural resilience, media shifts, and sociological patterns.
+        </p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start;">
+        <div class="retro-window" style="margin: 0; padding: 6px 12px; background: #dcd8cf; text-align: center;">
+          <span style="font-size: 10px; font-weight: bold; color: #555; text-transform: uppercase;">Milestone Completion</span>
+          <div class="font-pixel" style="font-size: 18px; font-weight: bold; color: #006600;">100% COMPLETE</div>
+        </div>
+        <button class="retro-btn no-print" onclick="window.print()" style="width: 100%; justify-content: center;">
+          🖨️ Print / Save PDF
+        </button>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs Strip -->
+    <nav class="retro-tabs-strip no-print">
+      <button class="retro-tab-item active" onclick="switchTab('tab1', this)">
+        📊 TAB 1: Core Lenses
+      </button>
+      <button class="retro-tab-item" onclick="switchTab('tab2', this)">
+        ⚔️ TAB 2: Aspect Matrix
+      </button>
+      <button class="retro-tab-item" onclick="switchTab('tab3', this)">
+        💡 TAB 3: Synthesis & Impact
+      </button>
+      <button class="retro-tab-item" onclick="switchTab('tab4', this)">
+        📚 TAB 4: References & Rubric
+      </button>
+    </nav>
+
+    <!-- Canvas Area -->
+    <div class="retro-canvas">
+      
+      <!-- ======================================================== -->
+      <!-- TAB 1: EXECUTIVE SUMMARY & CORE LENSES                   -->
+      <!-- ======================================================== -->
+      <section id="tab1" class="tab-content">
+        <!-- Summary Box -->
+        <div class="retro-sunken" style="padding: 16px; margin-bottom: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 10px;">
+            <strong style="font-size: 13px; text-transform: uppercase; color: #1e293b;">
+              Executive Summary • Milestone 2 Research Scope
+            </strong>
+            <span class="font-pixel" style="font-size: 14px; color: #64748b;">R. BENZON • POP CULTURE</span>
+          </div>
+          <p style="font-size: 13px; color: #334155; line-height: 1.6;">
+            This milestone presentation investigates how 1990s and early-2000s Philippine popular culture directly seeded present-day digital rituals.
+            Rather than representing an absolute rupture, modern Filipino media practices (such as mobile gaming squads, TikTok dance challenges, GCash cashless economies, and viral fandoms)
+            demonstrate direct continuity with traditional cultural mechanisms such as <em>tambay</em>, <em>pakikisama</em>, and the <em>tingi</em> consumer economy.
+          </p>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="filter-strip retro-window no-print" style="margin-bottom: 18px; padding: 10px 14px; background: #c0c0c0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center;">
+          <div style="display: flex; gap: 4px; align-items: center; flex-wrap: wrap;">
+            <span style="font-size: 12px; font-weight: bold; margin-right: 4px;">Filter Lens:</span>
+            <button class="retro-btn active" onclick="filterLens('all', this)">All Lenses</button>
+            <button class="retro-btn" onclick="filterLens('social', this)">Social</button>
+            <button class="retro-btn" onclick="filterLens('economic', this)">Economic</button>
+            <button class="retro-btn" onclick="filterLens('political', this)">Political</button>
+            <button class="retro-btn" onclick="filterLens('cultural', this)">Cultural</button>
+            <button class="retro-btn" onclick="filterLens('environmental', this)">Environmental</button>
+            <button class="retro-btn" onclick="filterLens('pacing', this)">Pacing / Others</button>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span style="font-size: 12px; font-weight: bold;">🔍 Search:</span>
+            <input type="text" id="lensSearch" onkeyup="searchLenses()" placeholder="Search keywords..." class="retro-sunken" style="padding: 4px 8px; font-size: 12px; width: 180px;">
+          </div>
+        </div>
+
+        <!-- Cards Container -->
+        <div id="lensesContainer">
+          
+          <!-- SOCIAL LENS -->
+          <article class="lens-card retro-window" data-lens="social">
+            <div class="lens-header">
+              <span class="font-pixel" style="font-size: 16px; color: #ffd700; font-weight: bold;">[SOCIAL LENS] • Socialization, Play & Peer Communication</span>
+              <button class="retro-btn no-print" onclick="openModal('social')" style="padding: 2px 6px; font-size: 11px;">🔍 Deep-Dive</button>
+            </div>
+            <div class="lens-grid">
+              <div class="lens-col col-past retro-sunken">
+                <div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+                    <strong style="color: #92400e; font-size: 12px;">PAST (1990s - 2000s)</strong>
+                    <span style="font-size: 11px; color: #64748b;">Analog Street Era</span>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #0f172a;">Street Play & After-School TV</h3>
+                  <p style="font-size: 12px; color: #475569; margin-bottom: 8px;">Physical neighborhood games: teks, jackstones, pogs, patintero, and tumbang preso.</p>
+                  <ul style="font-size: 12px; color: #1e293b; padding-left: 18px; line-height: 1.5;">
+                    <li>Communal television viewing: Ghost Fighter, Sailor Moon, and Ang TV after school.</li>
+                    <li>Landline telephones ("telebabad") and early SMS via indestructible Nokia brick phones (5110, 3210).</li>
+                    <li>Physical neighborhood hangouts (kanto tambayan and sari-sari store benches).</li>
+                  </ul>
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 6px;">
+                  <strong>Artifacts:</strong> Teks Cards, Pogs, Nokia 3210, CRT Television
+                </div>
+              </div>
+              <div class="lens-col col-present retro-sunken">
+                <div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+                    <strong style="color: #1e40af; font-size: 12px;">PRESENT DAY</strong>
+                    <span style="font-size: 11px; color: #64748b;">Digital Cloud Era</span>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #0f172a;">Digital Socialization & Virtual Lobbies</h3>
+                  <p style="font-size: 12px; color: #475569; margin-bottom: 8px;">Virtual hangout spaces: Roblox lobbies, Mobile Legends squads, Discord servers, and Messenger group chats.</p>
+                  <ul style="font-size: 12px; color: #1e293b; padding-left: 18px; line-height: 1.5;">
+                    <li>Universal smartphones with instant multi-user messaging and video calls.</li>
+                    <li>Viral TikTok dance challenges, collaborative duets, and meme dissemination.</li>
+                    <li>Synchronous multiplayer lobbies replacing physical street corners.</li>
+                  </ul>
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 6px;">
+                  <strong>Touchpoints:</strong> Discord Servers, Roblox Custom Worlds, TikTok FYP
+                </div>
+              </div>
+            </div>
+            <div class="lens-evolution">
+              <span style="color: #166534; font-size: 16px;">🌱</span>
+              <div>
+                <strong style="color: #14532d; font-size: 11px; text-transform: uppercase;">Evolution / Sociological Impact:</strong>
+                <p style="color: #0f172a; margin-top: 2px;">
+                  Neighborhood face-to-face play laid the foundation for today's active, tightly-knit digital social networks and virtual gaming communities.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- ECONOMIC LENS -->
+          <article class="lens-card retro-window" data-lens="economic">
+            <div class="lens-header">
+              <span class="font-pixel" style="font-size: 16px; color: #ffd700; font-weight: bold;">[ECONOMIC LENS] • Media Commerce & Spending Patterns</span>
+              <button class="retro-btn no-print" onclick="openModal('economic')" style="padding: 2px 6px; font-size: 11px;">🔍 Deep-Dive</button>
+            </div>
+            <div class="lens-grid">
+              <div class="lens-col col-past retro-sunken">
+                <div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+                    <strong style="color: #92400e; font-size: 12px;">PAST (1990s - 2000s)</strong>
+                    <span style="font-size: 11px; color: #64748b;">Physical Goods Era</span>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #0f172a;">Physical Media Purchases & Mall Tiangges</h3>
+                  <p style="font-size: 12px; color: #475569; margin-bottom: 8px;">Tangible media ownership: Eraserheads cassette tapes, CDs, VHS and VCD video rentals (Video City).</p>
+                  <ul style="font-size: 12px; color: #1e293b; padding-left: 18px; line-height: 1.5;">
+                    <li>Handheld gaming hardware: Nintendo Game Boys and Tamagotchi virtual pets.</li>
+                    <li>Weekend mall tiangges, Greenhills electronics bazaars, and cassette swap meets.</li>
+                    <li>Cash-only transactions and physical coin-operated arcade machines.</li>
+                  </ul>
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 6px;">
+                  <strong>Artifacts:</strong> Eraserheads Tape, Video City Card, Tamagotchi, Tiangge Receipt
+                </div>
+              </div>
+              <div class="lens-col col-present retro-sunken">
+                <div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+                    <strong style="color: #1e40af; font-size: 12px;">PRESENT DAY</strong>
+                    <span style="font-size: 11px; color: #64748b;">Cloud Subscription Era</span>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #0f172a;">Digital Subscriptions & E-Commerce</h3>
+                  <p style="font-size: 12px; color: #475569; margin-bottom: 8px;">Access-based streaming subscriptions: Spotify, Netflix, YouTube Premium, and cloud gaming.</p>
+                  <ul style="font-size: 12px; color: #1e293b; padding-left: 18px; line-height: 1.5;">
+                    <li>Digital payment ubiquity: GCash, Maya, and QR Ph scanned by street vendors.</li>
+                    <li>E-commerce marketplaces: Shopee, Lazada, and TikTok Shop flash sales.</li>
+                    <li>Micro-transactions, in-game diamond purchases, and livestream virtual tipping.</li>
+                  </ul>
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 6px;">
+                  <strong>Touchpoints:</strong> GCash QR, Shopee Parcel, Spotify Premium, In-game diamonds
+                </div>
+              </div>
+            </div>
+            <div class="lens-evolution">
+              <span style="color: #166534; font-size: 16px;">🌱</span>
+              <div>
+                <strong style="color: #14532d; font-size: 11px; text-transform: uppercase;">Evolution / Sociological Impact:</strong>
+                <p style="color: #0f172a; margin-top: 2px;">
+                  90s consumer habits for physical media and retail spaces directly shaped today’s digital market economy and cloud subscription models.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- POLITICAL LENS -->
+          <article class="lens-card retro-window" data-lens="political">
+            <div class="lens-header">
+              <span class="font-pixel" style="font-size: 16px; color: #ffd700; font-weight: bold;">[POLITICAL LENS] • News Media & Public Mobilization</span>
+              <button class="retro-btn no-print" onclick="openModal('political')" style="padding: 2px 6px; font-size: 11px;">🔍 Deep-Dive</button>
+            </div>
+            <div class="lens-grid">
+              <div class="lens-col col-past retro-sunken">
+                <div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+                    <strong style="color: #92400e; font-size: 12px;">PAST (1990s - 2000s)</strong>
+                    <span style="font-size: 11px; color: #64748b;">Broadcast News Era</span>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #0f172a;">Traditional Broadcast TV & Street Rallies</h3>
+                  <p style="font-size: 12px; color: #475569; margin-bottom: 8px;">Centralized news gatekeepers: ABS-CBN Channel 2 and GMA Channel 7 prime time evening broadcasts.</p>
+                  <ul style="font-size: 12px; color: #1e293b; padding-left: 18px; line-height: 1.5;">
+                    <li>Morning printed broadsheets (Inquirer, Philippine Star) and street tabloids.</li>
+                    <li>Televised Senate inquiries and live presidential debates viewed collectively in homes.</li>
+                    <li>Massive physical street rallies (e.g. EDSA Dos in Jan 2001 coordinated by chain SMS).</li>
+                  </ul>
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 6px;">
+                  <strong>Artifacts:</strong> TV Patrol Broadsheet, Nokia Chain SMS, Yellow Ribbon
+                </div>
+              </div>
+              <div class="lens-col col-present retro-sunken">
+                <div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+                    <strong style="color: #1e40af; font-size: 12px;">PRESENT DAY</strong>
+                    <span style="font-size: 11px; color: #64748b;">Algorithmic Feeds Era</span>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #0f172a;">Real-Time Feeds & Hashtag Activism</h3>
+                  <p style="font-size: 12px; color: #475569; margin-bottom: 8px;">Real-time breaking news notifications: Twitter/X threads and verified digital press channels.</p>
+                  <ul style="font-size: 12px; color: #1e293b; padding-left: 18px; line-height: 1.5;">
+                    <li>TikTok political explainers, partisan vlogging channels, and influencer commentators.</li>
+                    <li>Viral political memes, satirical reels, and educational carousel graphics on Instagram.</li>
+                    <li>Hashtag campaigns, digital donation drives, and distributed social boycotts.</li>
+                  </ul>
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 6px;">
+                  <strong>Touchpoints:</strong> Viral X Thread, Political TikTok, Fact-Check Infographics
+                </div>
+              </div>
+            </div>
+            <div class="lens-evolution">
+              <span style="color: #166534; font-size: 16px;">🌱</span>
+              <div>
+                <strong style="color: #14532d; font-size: 11px; text-transform: uppercase;">Evolution / Sociological Impact:</strong>
+                <p style="color: #0f172a; margin-top: 2px;">
+                  Traditional media consumption habits prepared citizens to easily adopt and participate in modern digital political discourse and online activism.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- CULTURAL LENS -->
+          <article class="lens-card retro-window" data-lens="cultural">
+            <div class="lens-header">
+              <span class="font-pixel" style="font-size: 16px; color: #ffd700; font-weight: bold;">[CULTURAL LENS] • Music, Love Teams & Global Influx</span>
+              <button class="retro-btn no-print" onclick="openModal('cultural')" style="padding: 2px 6px; font-size: 11px;">🔍 Deep-Dive</button>
+            </div>
+            <div class="lens-grid">
+              <div class="lens-col col-past retro-sunken">
+                <div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+                    <strong style="color: #92400e; font-size: 12px;">PAST (1990s - 2000s)</strong>
+                    <span style="font-size: 11px; color: #64748b;">Pinoy Rock & Love Teams</span>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #0f172a;">Pinoy Rock Boom & Dubbed Anime</h3>
+                  <p style="font-size: 12px; color: #475569; margin-bottom: 8px;">Domestic music renaissance: Eraserheads, Rivermaya, Parokya ni Edgar, and Siakol.</p>
+                  <ul style="font-size: 12px; color: #1e293b; padding-left: 18px; line-height: 1.5;">
+                    <li>Beloved cinema & television teen love teams: Marvin & Jolina, Rico & Claudine.</li>
+                    <li>Tagalog-dubbed Japanese anime block: Slam Dunk, Dragon Ball Z, Sailor Moon.</li>
+                    <li>Early dial-up internet culture: mIRC chatrooms, Pinoy exchange boards, and Geocities sites.</li>
+                  </ul>
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 6px;">
+                  <strong>Artifacts:</strong> Rivermaya Cassette, Jolina Butterfly Clip, Slam Dunk Poster
+                </div>
+              </div>
+              <div class="lens-col col-present retro-sunken">
+                <div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+                    <strong style="color: #1e40af; font-size: 12px;">PRESENT DAY</strong>
+                    <span style="font-size: 11px; color: #64748b;">Borderless P-Pop & Streaming</span>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #0f172a;">Borderless Streaming & P-Pop Renaissance</h3>
+                  <p style="font-size: 12px; color: #475569; margin-bottom: 8px;">Globalized digital streaming: Spotify Top 50 Philippines and Netflix original serials.</p>
+                  <ul style="font-size: 12px; color: #1e293b; padding-left: 18px; line-height: 1.5;">
+                    <li>P-Pop and K-Pop crossover dominance: SB19, BINI, and international fan spaces.</li>
+                    <li>Viral TikTok sound bites transforming local independent songs into mainstream radio hits.</li>
+                    <li>High-speed fiber connectivity and personalized AI recommendation feeds.</li>
+                  </ul>
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 6px;">
+                  <strong>Touchpoints:</strong> BINI Lightstick, Spotify Wrapped, Bluetooth Earbuds
+                </div>
+              </div>
+            </div>
+            <div class="lens-evolution">
+              <span style="color: #166534; font-size: 16px;">🌱</span>
+              <div>
+                <strong style="color: #14532d; font-size: 11px; text-transform: uppercase;">Evolution / Sociological Impact:</strong>
+                <p style="color: #0f172a; margin-top: 2px;">
+                  The 90s openness to localized foreign media paved the way for today's fully globalized, interconnected, and borderless digital pop culture landscape.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- ENVIRONMENTAL LENS -->
+          <article class="lens-card retro-window" data-lens="environmental">
+            <div class="lens-header">
+              <span class="font-pixel" style="font-size: 16px; color: #ffd700; font-weight: bold;">[ENVIRONMENTAL LENS] • Material Footprint & Spatial Living</span>
+              <button class="retro-btn no-print" onclick="openModal('environmental')" style="padding: 2px 6px; font-size: 11px;">🔍 Deep-Dive</button>
+            </div>
+            <div class="lens-grid">
+              <div class="lens-col col-past retro-sunken">
+                <div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+                    <strong style="color: #92400e; font-size: 12px;">PAST (1990s - 2000s)</strong>
+                    <span style="font-size: 11px; color: #64748b;">Analog Waste Era</span>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #0f172a;">Physical Analog Waste & Open-Air Play</h3>
+                  <p style="font-size: 12px; color: #475569; margin-bottom: 8px;">Tangible physical waste: discarded plastic cassette shells, CD jewel cases, and paper songhits.</p>
+                  <ul style="font-size: 12px; color: #1e293b; padding-left: 18px; line-height: 1.5;">
+                    <li>Heavy reliance on open-air neighborhood street play and natural daylight.</li>
+                    <li>Walking-distance errands to local sari-sari stores, bakeries, and rental kiosks.</li>
+                    <li>Lower domestic electrical power drain (no multiple always-connected device chargers).</li>
+                  </ul>
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 6px;">
+                  <strong>Artifacts:</strong> Cassette Tape Shell, Songhits Magazine, Street Chalk
+                </div>
+              </div>
+              <div class="lens-col col-present retro-sunken">
+                <div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+                    <strong style="color: #1e40af; font-size: 12px;">PRESENT DAY</strong>
+                    <span style="font-size: 11px; color: #64748b;">E-Waste & Cloud Footprint</span>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #0f172a;">Electronic Waste & Screen Migration</h3>
+                  <p style="font-size: 12px; color: #475569; margin-bottom: 8px;">Electronic waste (e-waste): discarded smartphones, swollen lithium batteries, and obsolete charging cords.</p>
+                  <ul style="font-size: 12px; color: #1e293b; padding-left: 18px; line-height: 1.5;">
+                    <li>Invisible energy and carbon footprints generated by global data server farms and 24/7 video streaming.</li>
+                    <li>Shift toward indoor, air-conditioned urban living and multi-hour sedentary screen use.</li>
+                    <li>Single-use packaging waste from daily online e-commerce parcel deliveries (bubble wraps, couriers).</li>
+                  </ul>
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 6px;">
+                  <strong>Touchpoints:</strong> E-waste bin, Shopee Bubblewrap, Air-conditioner Remote
+                </div>
+              </div>
+            </div>
+            <div class="lens-evolution">
+              <span style="color: #166534; font-size: 16px;">🌱</span>
+              <div>
+                <strong style="color: #14532d; font-size: 11px; text-transform: uppercase;">Evolution / Sociological Impact:</strong>
+                <p style="color: #0f172a; margin-top: 2px;">
+                  The transition from outdoor play to indoor screen dependence highlights how modern technology has altered environmental interactions and waste footprints.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- PACING / OTHERS LENS -->
+          <article class="lens-card retro-window" data-lens="pacing">
+            <div class="lens-header">
+              <span class="font-pixel" style="font-size: 16px; color: #ffd700; font-weight: bold;">[PACING / OTHER OBSERVATIONS] • Temporal Rhythm & The "Prosumer"</span>
+              <button class="retro-btn no-print" onclick="openModal('pacing')" style="padding: 2px 6px; font-size: 11px;">🔍 Deep-Dive</button>
+            </div>
+            <div class="lens-grid">
+              <div class="lens-col col-past retro-sunken">
+                <div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+                    <strong style="color: #92400e; font-size: 12px;">PAST (1990s - 2000s)</strong>
+                    <span style="font-size: 11px; color: #64748b;">Scheduled Pacing Era</span>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #0f172a;">Pre-Digital Pacing & Dial-up Waiting</h3>
+                  <p style="font-size: 12px; color: #475569; margin-bottom: 8px;">Fixed television schedules: prime time soap operas and weekly Sunday variety shows at predetermined hours.</p>
+                  <ul style="font-size: 12px; color: #1e293b; padding-left: 18px; line-height: 1.5;">
+                    <li>Dial-up internet waiting: noisy 56k modem handshake, waiting minutes to load a single photo.</li>
+                    <li>Anticipation built into postal letters, radio song dedications, and beeper pagers.</li>
+                    <li>Slower life cadence with high tolerance for delayed gratification.</li>
+                  </ul>
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 6px;">
+                  <strong>Artifacts:</strong> 56k Modem Sound, TV Guide, EasyCall Pager
+                </div>
+              </div>
+              <div class="lens-col col-present retro-sunken">
+                <div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+                    <strong style="color: #1e40af; font-size: 12px;">PRESENT DAY</strong>
+                    <span style="font-size: 11px; color: #64748b;">Always-On Prosumer Era</span>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #0f172a;">24/7 Instant Connectivity & Prosumers</h3>
+                  <p style="font-size: 12px; color: #475569; margin-bottom: 8px;">Continuous 24/7 real-time streaming notifications and infinite algorithmic content feeds.</p>
+                  <ul style="font-size: 12px; color: #1e293b; padding-left: 18px; line-height: 1.5;">
+                    <li>Instant multi-channel fulfillment: on-demand grocery delivery, same-hour streaming drops.</li>
+                    <li>Shift from passive consumers to active "prosumers" creating their own video essays, memes, and remixes.</li>
+                    <li>Fragmented attention spans balanced by rapid digital multitasking capabilities.</li>
+                  </ul>
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 6px;">
+                  <strong>Touchpoints:</strong> Notification Center, Ring Light Setup, Infinite Scroll
+                </div>
+              </div>
+            </div>
+            <div class="lens-evolution">
+              <span style="color: #166534; font-size: 16px;">🌱</span>
+              <div>
+                <strong style="color: #14532d; font-size: 11px; text-transform: uppercase;">Evolution / Sociological Impact:</strong>
+                <p style="color: #0f172a; margin-top: 2px;">
+                  90s transitional pacing prepared society for today's fast-paced digital information age and instant communication standards.
+                </p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ======================================================== -->
+      <!-- TAB 2: SIDE-BY-SIDE ASPECT MATRIX                        -->
+      <!-- ======================================================== -->
+      <section id="tab2" class="tab-content" style="display: none;">
+        <div class="retro-sunken" style="padding: 16px; margin-bottom: 18px;">
+          <h2 style="font-size: 14px; text-transform: uppercase; font-weight: bold; color: #1e293b; margin-bottom: 6px;">
+            Tripartite Aspect Matrix: Technology • Performance • Space
+          </h2>
+          <p style="font-size: 13px; color: #475569; line-height: 1.5;">
+            To dissect the socio-cultural evolution of Filipino popular culture, this comparative matrix isolates three essential dimensions:
+            the <strong> technological carriers</strong>, the <strong> performance modalities</strong>, and the <strong> social spaces</strong> where culture is enacted.
+          </p>
+        </div>
+
+        <!-- 3 Aspect Cards -->
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          
+          <!-- ASPECT 1: TECHNOLOGY -->
+          <div class="retro-window">
+            <div class="lens-header" style="background: #0f172a;">
+              <span class="font-pixel" style="font-size: 16px; color: #38bdf8; font-weight: bold;">ASPECT 1: TECHNOLOGY & MEDIA CARRIERS</span>
+              <span style="font-size: 11px; color: #94a3b8;">From Analog Scarcity to Algorithmic Cloud Abundance</span>
+            </div>
+            <div class="lens-grid">
+              <div class="lens-col col-past retro-sunken">
+                <strong style="color: #92400e; font-size: 12px; margin-bottom: 6px; display: block;">1990s Analog Hardware</strong>
+                <p style="font-size: 12px; color: #334155; line-height: 1.5; margin-bottom: 8px;">
+                  Information stored on discrete magnetic tapes, floppy disks, and heavy glass CRT tubes. Dial-up ISPs (Infocom, Mozcom) required acoustic 56k modems.
+                </p>
+                <div style="font-size: 11px; color: #475569;">
+                  <strong>Key Artifacts:</strong> Cassette Walkman, VHS tapes, 1.44MB Floppy, Nokia 5110/3210 monochrome SMS.
+                </div>
+              </div>
+              <div class="lens-col col-present retro-sunken">
+                <strong style="color: #1e40af; font-size: 12px; margin-bottom: 6px; display: block;">Present Digital Cloud</strong>
+                <p style="font-size: 12px; color: #334155; line-height: 1.5; margin-bottom: 8px;">
+                  Information is weightless, instantaneous, and continuously synced across 5G/Fiber networks and algorithmic recommendation engines.
+                </p>
+                <div style="font-size: 11px; color: #475569;">
+                  <strong>Key Artifacts:</strong> 5G OLED Smartphones, Spotify Cloud Playlists, Discord Channels, TWS Earbuds.
+                </div>
+              </div>
+            </div>
+            <div class="lens-evolution" style="background: #e2e8f0;">
+              <strong>🔄 Mediating Transformation:</strong>
+              <span>Shift from physical media scarcity and high tactile maintenance to infinite digital abundance where attention is the true scarce commodity.</span>
+            </div>
+          </div>
+
+          <!-- ASPECT 2: PERFORMANCE -->
+          <div class="retro-window">
+            <div class="lens-header" style="background: #0f172a;">
+              <span class="font-pixel" style="font-size: 16px; color: #38bdf8; font-weight: bold;">ASPECT 2: PERFORMANCE & STAGING</span>
+              <span style="font-size: 11px; color: #94a3b8;">From Broadcast Monopolies to User-Generated Co-Creation</span>
+            </div>
+            <div class="lens-grid">
+              <div class="lens-col col-past retro-sunken">
+                <strong style="color: #92400e; font-size: 12px; margin-bottom: 6px; display: block;">1990s Centralized Variety & Gigs</strong>
+                <p style="font-size: 12px; color: #334155; line-height: 1.5; margin-bottom: 8px;">
+                  One-to-many broadcast staging. Entertainment was dictated by Sunday variety broadcasts (ASAP, GMA Supershow) and college campus rock tours.
+                </p>
+                <div style="font-size: 11px; color: #475569;">
+                  <strong>Key Manifestations:</strong> Eraserheads & Rivermaya stadium concerts, primetime network soap operas, cinema love-team premiers.
+                </div>
+              </div>
+              <div class="lens-col col-present retro-sunken">
+                <strong style="color: #1e40af; font-size: 12px; margin-bottom: 6px; display: block;">Present Decentralized Creator Streams</strong>
+                <p style="font-size: 12px; color: #334155; line-height: 1.5; margin-bottom: 8px;">
+                  Many-to-many decentralized performance. Any youth with a smartphone can stage skits, live stream gaming, and participate in dance trends.
+                </p>
+                <div style="font-size: 11px; color: #475569;">
+                  <strong>Key Manifestations:</strong> TikTok dance challenges, P-Pop fandom streaming parties (SB19, BINI), Twitch/FB Gaming livestreams.
+                </div>
+              </div>
+            </div>
+            <div class="lens-evolution" style="background: #e2e8f0;">
+              <strong>🔄 Mediating Transformation:</strong>
+              <span>Transition from passive viewers gazing at television stars to active participants who remix, duet, and dictate pop culture charts.</span>
+            </div>
+          </div>
+
+          <!-- ASPECT 3: SPACE -->
+          <div class="retro-window">
+            <div class="lens-header" style="background: #0f172a;">
+              <span class="font-pixel" style="font-size: 16px; color: #38bdf8; font-weight: bold;">ASPECT 3: SPACE & SOCIAL GEOGRAPHY</span>
+              <span style="font-size: 11px; color: #94a3b8;">From Kanto Street Corners to Virtual Community Lobbies</span>
+            </div>
+            <div class="lens-grid">
+              <div class="lens-col col-past retro-sunken">
+                <strong style="color: #92400e; font-size: 12px; margin-bottom: 6px; display: block;">1990s Physical Tambayan</strong>
+                <p style="font-size: 12px; color: #334155; line-height: 1.5; margin-bottom: 8px;">
+                  Youth geography was physically rooted in the local street corner ("kanto"), the neighborhood sari-sari store bench, and mall corridors.
+                </p>
+                <div style="font-size: 11px; color: #475569;">
+                  <strong>Key Sites:</strong> Barangay basketball asphalt courts, school corridor tambayan, SM Megamall tiangges.
+                </div>
+              </div>
+              <div class="lens-col col-present retro-sunken">
+                <strong style="color: #1e40af; font-size: 12px; margin-bottom: 6px; display: block;">Present Virtual "Tambayan" Lobbies</strong>
+                <p style="font-size: 12px; color: #334155; line-height: 1.5; margin-bottom: 8px;">
+                  Filipino youth gather across geographic borders inside custom Roblox maps, Discord voice lounges, and collaborative gaming squads.
+                </p>
+                <div style="font-size: 11px; color: #475569;">
+                  <strong>Key Sites:</strong> Discord server lounges, Roblox Pinoy roleplay worlds, TikTok live comment sections.
+                </div>
+              </div>
+            </div>
+            <div class="lens-evolution" style="background: #e2e8f0;">
+              <strong>🔄 Mediating Transformation:</strong>
+              <span>The timeless Filipino cultural habit of "tambay" was not dismantled; it translocated effortlessly from the physical kanto to the virtual server.</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ======================================================== -->
+      <!-- TAB 3: SYNTHESIS & IMPACT DEDUCTIONS                     -->
+      <!-- ======================================================== -->
+      <section id="tab3" class="tab-content" style="display: none;">
+        <div class="retro-sunken" style="padding: 16px; margin-bottom: 18px;">
+          <h2 style="font-size: 14px; text-transform: uppercase; font-weight: bold; color: #1e293b; margin-bottom: 6px;">
+            Synthesis & Impact Deductions • Key Sociological Theses
+          </h2>
+          <p style="font-size: 13px; color: #475569; line-height: 1.6;">
+            A synthesis of our historical findings reveals four primary sociological deductions regarding the dialectical continuity between 1990s culture and modern Filipino digital life.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+          
+          <div class="retro-window">
+            <div class="lens-header" style="background: #1e293b;">
+              <span class="font-pixel" style="font-size: 16px; color: #ffd700;">DEDUCTION 01: DIALECTICAL CONTINUITY OF BARKADA & TAMBAY</span>
+              <span style="font-size: 11px; color: #cbd5e1;">Sociological Continuity</span>
+            </div>
+            <div style="padding: 14px; background: #fff;">
+              <div class="retro-sunken" style="padding: 8px; font-family: monospace; font-size: 12px; color: #047857; background: #ecfdf5; margin-bottom: 10px; font-weight: bold; text-align: center;">
+                [1990s Kanto Street Tambayan] + [Mobile Cloud Connectivity] = [Virtual Discord & ML Squads]
+              </div>
+              <p style="font-size: 13px; color: #334155; line-height: 1.6;">
+                Technological disruption did not dissolve communal youth traditions in the Philippines. Instead, deep-seated cultural mechanisms like <em>barkada</em> (peer solidarity) and <em>tambay</em> (communal leisure) provided the behavioral scaffolding that allowed Filipinos to become global leaders in social media and mobile gaming adoption.
+              </p>
+            </div>
+          </div>
+
+          <div class="retro-window">
+            <div class="lens-header" style="background: #1e293b;">
+              <span class="font-pixel" style="font-size: 16px; color: #ffd700;">DEDUCTION 02: THE "TINGI" ECONOMY GOES FINTECH</span>
+              <span style="font-size: 11px; color: #cbd5e1;">Economic Adaptation</span>
+            </div>
+            <div style="padding: 14px; background: #fff;">
+              <div class="retro-sunken" style="padding: 8px; font-family: monospace; font-size: 12px; color: #047857; background: #ecfdf5; margin-bottom: 10px; font-weight: bold; text-align: center;">
+                [1990s Sari-Sari Store Sachets] + [Digital Mobile Wallets] = [GCash Cashless Tingi & Micro-Gaming]
+              </div>
+              <p style="font-size: 13px; color: #334155; line-height: 1.6;">
+                The Philippine retail habit of <em>tingi</em> (buying items in single units rather than bulk) seamlessly translated into the digital age through prepaid data reloads, single-song micro-purchases, and GCash payments for street food vendors.
+              </p>
+            </div>
+          </div>
+
+          <div class="retro-window">
+            <div class="lens-header" style="background: #1e293b;">
+              <span class="font-pixel" style="font-size: 16px; color: #ffd700;">DEDUCTION 03: PASSIVE AUDIENCES TO CREATOR "PROSUMERS"</span>
+              <span style="font-size: 11px; color: #cbd5e1;">Participatory Shift</span>
+            </div>
+            <div style="padding: 14px; background: #fff;">
+              <div class="retro-sunken" style="padding: 8px; font-family: monospace; font-size: 12px; color: #047857; background: #ecfdf5; margin-bottom: 10px; font-weight: bold; text-align: center;">
+                [1990s Fixed TV Broadcast Monopolies] + [TikTok & Reels Algorithms] = [Filipino User-Generated Culture]
+              </div>
+              <p style="font-size: 13px; color: #334155; line-height: 1.6;">
+                While 90s Filipinos were passive viewers tethered to network television schedules, today's generation acts as "prosumers" who both consume and actively produce media, generating memes, remixes, and viral dances that influence global trends.
+              </p>
+            </div>
+          </div>
+
+          <div class="retro-window">
+            <div class="lens-header" style="background: #1e293b;">
+              <span class="font-pixel" style="font-size: 16px; color: #ffd700;">DEDUCTION 04: GLOCALIZATION AND THE P-POP EXPANSION</span>
+              <span style="font-size: 11px; color: #cbd5e1;">Cultural Evolution</span>
+            </div>
+            <div style="padding: 14px; background: #fff;">
+              <div class="retro-sunken" style="padding: 8px; font-family: monospace; font-size: 12px; color: #047857; background: #ecfdf5; margin-bottom: 10px; font-weight: bold; text-align: center;">
+                [1990s Localized Foreign Dubs] + [Global Streaming Platforms] = [Internationally Competitive P-Pop (SB19, BINI)]
+              </div>
+              <p style="font-size: 13px; color: #334155; line-height: 1.6;">
+                The 90s habit of localizing foreign media (Tagalog anime dubs) fostered a unique cultural hybridity. Today, that hybridity enables Philippine acts to synthesize world-class pop production with authentic Filipino lyricism and values.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ======================================================== -->
+      <!-- TAB 4: ACADEMIC REFERENCES & SELF-ASSESSMENT             -->
+      <!-- ======================================================== -->
+      <section id="tab4" class="tab-content" style="display: none;">
+        
+        <!-- Academic Citations -->
+        <div class="retro-window" style="margin-bottom: 18px;">
+          <div class="lens-header" style="background: #14532d;">
+            <span class="font-pixel" style="font-size: 16px; color: #86efac; font-weight: bold;">ACADEMIC REFERENCES & THEORETICAL CITATIONS</span>
+            <span style="font-size: 11px; color: #dcfce7;">APA 7th Edition</span>
+          </div>
+          <div style="padding: 16px; background: #ffffff; display: flex; flex-direction: column; gap: 14px;">
+            
+            <div class="retro-sunken" style="padding: 12px;">
+              <div style="font-size: 13px; color: #0f172a; margin-bottom: 4px;">
+                <strong>Acosta, R. A. (2005).</strong> The influences of television animation and family on the play behaviors of Filipino children. <em>Plaridel Journal: A Philippine Journal of Communication, Media, and Society</em>.
+              </div>
+              <p style="font-size: 12px; color: #475569; line-height: 1.5;">
+                <strong>Relevance:</strong> Substantiates the Social and Cultural lens by investigating how Japanese anime broadcasts in the late 90s directly shaped Filipino children's outdoor roleplay and card-flipping (teks) game dynamics.
+              </p>
+            </div>
+
+            <div class="retro-sunken" style="padding: 12px;">
+              <div style="font-size: 13px; color: #0f172a; margin-bottom: 4px;">
+                <strong>Pertierra, R. (2002).</strong> Mobile phones, identity, and the Philippine public sphere. <em>Asian Studies Journal</em>.
+              </div>
+              <p style="font-size: 12px; color: #475569; line-height: 1.5;">
+                <strong>Relevance:</strong> Key theoretical text analyzing the emergence of cellular SMS in the Philippines, documenting how early Nokia texting created an alternative public sphere that mobilized EDSA Dos in 2001 and prefigured modern social media activism.
+              </p>
+            </div>
+
+            <div class="retro-sunken" style="padding: 12px;">
+              <div style="font-size: 13px; color: #0f172a; margin-bottom: 4px;">
+                <strong>Santos, K. (2020).</strong> Ang liga ay buháy: Ang pagtatagpo ng teleserye at anime sa kulturang popular. <em>Plaridel Journal: A Philippine Journal of Communication, Media, and Society</em>.
+              </div>
+              <p style="font-size: 12px; color: #475569; line-height: 1.5;">
+                <strong>Relevance:</strong> Bridges the 90s television broadcast era to contemporary media serialization, exploring how anime dubbing influenced local storytelling tropes in Filipino television and modern digital drama formats.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Project Self-Assessment Card -->
+        <div class="retro-window">
+          <div class="lens-header" style="background: #1e293b;">
+            <span class="font-pixel" style="font-size: 16px; color: #ffd700; font-weight: bold;">MILESTONE 2 SELF-ASSESSMENT & AUDIT</span>
+            <span style="font-size: 11px; color: #cbd5e1;">Rachel Ann Benzon</span>
+          </div>
+          <div style="padding: 16px; background: #ffffff;">
+            <div class="retro-sunken" style="padding: 12px; margin-bottom: 14px; background: #f8fafc;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 12px;">
+                <div><strong>Student Name:</strong> Rachel Ann Benzon</div>
+                <div><strong>Project Status:</strong> Milestone 2 (100% Complete)</div>
+                <div><strong>Next Milestone:</strong> Digital Museum Exhibit Launch (M3)</div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12px;">
+              <div>
+                <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 2px;">
+                  <span>1. 6 Core Lenses Synthesized (Social, Econ, Pol, Cult, Env, Pacing)</span>
+                  <span style="color: #15803d;">100% Completed</span>
+                </div>
+                <div style="height: 10px; background: #e2e8f0; border: 1px solid #cbd5e1;">
+                  <div style="width: 100%; height: 100%; background: #15803d;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 2px;">
+                  <span>2. Side-by-Side Aspect Matrix (Technology, Performance, Space)</span>
+                  <span style="color: #15803d;">100% Completed</span>
+                </div>
+                <div style="height: 10px; background: #e2e8f0; border: 1px solid #cbd5e1;">
+                  <div style="width: 100%; height: 100%; background: #15803d;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 2px;">
+                  <span>3. Academic Literature Grounding (Acosta, Pertierra, Santos)</span>
+                  <span style="color: #15803d;">100% Grounded</span>
+                </div>
+                <div style="height: 10px; background: #e2e8f0; border: 1px solid #cbd5e1;">
+                  <div style="width: 100%; height: 100%; background: #15803d;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- Retro Statusbar -->
+    <footer class="retro-statusbar">
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <span>🟢 System Status: Active</span>
+        <span>•</span>
+        <span id="activeTabLabel">View: Core Lenses</span>
+        <span>•</span>
+        <span>Dataset: 1990s vs. Present Philippine Pop Culture</span>
+      </div>
+      <div>
+        <span class="font-pixel" style="font-size: 14px;">BENZON-M2-REV4</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Bottom Taskbar -->
+  <div class="taskbar no-print">
+    <div style="display: flex; gap: 6px; align-items: center;">
+      <button class="retro-btn" onclick="alert('What\\'s Poppin\\', Pinoy\\nResearcher: Rachel Ann Benzon\\nMilestone 2 Complete.')" style="font-weight: 800; padding: 2px 8px;">
+        <span class="font-pixel" style="font-size: 15px; color: #000080;">PINOY</span> Start
+      </button>
+      <div class="retro-sunken" style="padding: 2px 8px; font-size: 11px; background: #e2e8f0;">
+        🖥️ Milestone 2: What's Poppin', Pinoy (Workstation)
+      </div>
+    </div>
+    <div class="retro-sunken" style="padding: 2px 8px; font-size: 11px; background: #e2e8f0; font-family: monospace;" id="systemClock">
+      12:00:00 PM
+    </div>
+  </div>
+
+  <!-- Retro Modal Inspector -->
+  <div class="retro-modal-backdrop no-print" id="retroModal" onclick="if(event.target === this) closeModal()">
+    <div class="retro-modal-window retro-window">
+      <div class="retro-titlebar">
+        <span id="modalTitle" class="font-pixel" style="font-size: 16px; font-weight: bold;">Deep-Dive Note</span>
+        <button class="retro-title-btn" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Injected via JS -->
+      </div>
+      <div style="background: #c0c0c0; border-top: 1px solid #808080; padding: 8px 12px; display: flex; justify-content: flex-end;">
+        <button class="retro-btn" onclick="closeModal()">Close Window</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Tab Switching
+    function switchTab(tabId, btn) {
+      playBeep(600, 0.04);
+      document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.retro-tab-item').forEach(el => el.classList.remove('active'));
+      
+      const target = document.getElementById(tabId);
+      if (target) target.style.display = 'block';
+      if (btn) btn.classList.add('active');
+
+      const labels = {
+        'tab1': 'View: Core Lenses (6 Categories)',
+        'tab2': 'View: Aspect Matrix (Tech, Performance, Space)',
+        'tab3': 'View: Synthesis & Deductions',
+        'tab4': 'View: Academic References & Self-Assessment'
+      };
+      document.getElementById('activeTabLabel').innerText = labels[tabId] || 'View: Active';
+    }
+
+    // Filter Lenses
+    function filterLens(category, btn) {
+      playBeep(700, 0.03);
+      document.querySelectorAll('.filter-strip .retro-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const cards = document.querySelectorAll('#lensesContainer .lens-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-lens') === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Search Lenses
+    function searchLenses() {
+      const q = document.getElementById('lensSearch').value.toLowerCase();
+      const cards = document.querySelectorAll('#lensesContainer .lens-card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(q)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal Deep-Dive Inspector
+    const lensDetails = {
+      social: {
+        title: "Deep Dive: Socialization, Play & Peer Communication",
+        content: `
+          <h4 style="font-weight: bold; margin-bottom: 6px; color: #000080;">Historical Grounding (1990s):</h4>
+          <p style="margin-bottom: 10px;">In the 1990s, the Filipino 'barkada' was physically grounded in the neighborhood geography. Children congregated on street corners ("kanto") for tactile games like teks (printed anime cards flicked with thumbs), pogs, and patintero. After-school programming on major broadcast networks (Channel 2 and 7) synchronized peer discussion.</p>
+          <h4 style="font-weight: bold; margin-bottom: 6px; color: #000080;">Modern Sociological Evolution:</h4>
+          <p style="margin-bottom: 10px;">Face-to-face play did not vanish; it translocated to mobile screens. Roblox and Mobile Legends provide persistent virtual playgrounds, while Discord voice channels reproduce the casual ambient intimacy of the neighborhood tambayan.</p>
+          <div style="background: #e2e8f0; padding: 8px; border-left: 3px solid #000080; font-size: 12px;">
+            <strong>Citation Connection:</strong> Supported by Acosta (2005) regarding media animation influences on children's play routines.
+          </div>
+        `
+      },
+      economic: {
+        title: "Deep Dive: Economic Media Consumption & Spending",
+        content: `
+          <h4 style="font-weight: bold; margin-bottom: 6px; color: #000080;">Historical Grounding (1990s):</h4>
+          <p style="margin-bottom: 10px;">Consumer engagement required physical media purchase: cassette albums by Eraserheads and Rivermaya at SM Record Bars, VHS rentals at Video City, and visits to Greenhills tiangges for grey-market Japanese import games.</p>
+          <h4 style="font-weight: bold; margin-bottom: 6px; color: #000080;">Modern Sociological Evolution:</h4>
+          <p style="margin-bottom: 10px;">Physical disc ownership transitioned to cloud-based subscriptions (Spotify, Netflix). Furthermore, the classic Filipino "tingi" culture (buying in micro-quantities) survives in GCash load purchases and in-game micro-transactions.</p>
+        `
+      },
+      political: {
+        title: "Deep Dive: Political Discourse & Civic Mobilization",
+        content: `
+          <h4 style="font-weight: bold; margin-bottom: 6px; color: #000080;">Historical Grounding (1990s):</h4>
+          <p style="margin-bottom: 10px;">Civic discourse was mediated through centralized television newsrooms and printed morning newspapers. Street mobilization culminated in massive gatherings along EDSA, most notably EDSA Dos (2001) which was famously organized via chain SMS on Nokia 3210 handsets.</p>
+          <h4 style="font-weight: bold; margin-bottom: 6px; color: #000080;">Modern Sociological Evolution:</h4>
+          <p style="margin-bottom: 10px;">News consumption is now continuous and decentralized. Social media platforms like TikTok, X (Twitter), and YouTube host fragmented political debates, viral infographics, and instant donation crowd-drives.</p>
+          <div style="background: #e2e8f0; padding: 8px; border-left: 3px solid #000080; font-size: 12px;">
+            <strong>Citation Connection:</strong> Grounded in Pertierra's (2002) foundational research on cellular phones and the Philippine public sphere.
+          </div>
+        `
+      },
+      cultural: {
+        title: "Deep Dive: Cultural Influx, Music & Fandoms",
+        content: `
+          <h4 style="font-weight: bold; margin-bottom: 6px; color: #000080;">Historical Grounding (1990s):</h4>
+          <p style="margin-bottom: 10px;">The 90s saw an explosive Pinoy alternative rock boom (Eraserheads, Siakol) alongside localized Japanese anime (Slam Dunk, Ghost Fighter). Local networks perfected Tagalog dubbing, establishing a hybrid cultural literacy.</p>
+          <h4 style="font-weight: bold; margin-bottom: 6px; color: #000080;">Modern Sociological Evolution:</h4>
+          <p style="margin-bottom: 10px;">This hybrid literacy paved the way for modern P-Pop (SB19, BINI) to seamlessly merge international pop production standards with deeply Filipino themes and idioms.</p>
+          <div style="background: #e2e8f0; padding: 8px; border-left: 3px solid #000080; font-size: 12px;">
+            <strong>Citation Connection:</strong> Supported by Santos (2020) analyzing the confluence of Philippine teleseryes and anime in pop culture.
+          </div>
+        `
+      },
+      environmental: {
+        title: "Deep Dive: Environmental Footprint & Screen Migration",
+        content: `
+          <h4 style="font-weight: bold; margin-bottom: 6px; color: #000080;">Historical Grounding (1990s):</h4>
+          <p style="margin-bottom: 10px;">Physical waste consisted of non-biodegradable cassette plastic cases, VHS tapes, and magazine paper, but everyday childhood lifestyle was predominantly outdoors with zero screen-induced power load.</p>
+          <h4 style="font-weight: bold; margin-bottom: 6px; color: #000080;">Modern Sociological Evolution:</h4>
+          <p style="margin-bottom: 10px;">Waste has shifted to toxic e-waste (lithium batteries, discarded phones) and hidden carbon footprints from cloud data servers, coupled with an indoor migration into air-conditioned rooms.</p>
+        `
+      },
+      pacing: {
+        title: "Deep Dive: Temporal Rhythm & The Prosumer Shift",
+        content: `
+          <h4 style="font-weight: bold; margin-bottom: 6px; color: #000080;">Historical Grounding (1990s):</h4>
+          <p style="margin-bottom: 10px;">Pacing was synchronized by broadcast TV schedules and dial-up waiting periods. Leisure demanded anticipation and patience.</p>
+          <h4 style="font-weight: bold; margin-bottom: 6px; color: #000080;">Modern Sociological Evolution:</h4>
+          <p style="margin-bottom: 10px;">Pacing is now 24/7, continuous, and on-demand. Audiences have evolved from passive consumers into active "prosumers" who generate content, direct trends, and participate in continuous cultural remixing.</p>
+        `
+      }
+    };
+
+    function openModal(key) {
+      playBeep(800, 0.05);
+      const data = lensDetails[key];
+      if (!data) return;
+      document.getElementById('modalTitle').innerText = data.title;
+      document.getElementById('modalBody').innerHTML = data.content;
+      document.getElementById('retroModal').classList.add('show');
+    }
+
+    function closeModal() {
+      playBeep(400, 0.04);
+      document.getElementById('retroModal').classList.remove('show');
+    }
+
+    // Web Audio API Retro Sound Effects
+    let audioEnabled = false;
+    let audioCtx = null;
+
+    function toggleAudio() {
+      audioEnabled = !audioEnabled;
+      document.getElementById('soundBtn').innerText = audioEnabled ? '🔊' : '🔇';
+      if (audioEnabled) {
+        playBeep(880, 0.06);
+      }
+    }
+
+    function playBeep(freq, dur) {
+      if (!audioEnabled) return;
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + dur);
+      } catch(e) {}
+    }
+
+    // Live Clock
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('systemClock').innerText = now.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>

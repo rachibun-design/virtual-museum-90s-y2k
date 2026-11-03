@@ -1,0 +1,6 @@
+{
+  "name": "What's Poppin', Pinoy: 1990s vs. Present PH Pop Culture",
+  "description": "Interactive Progress & Milestone Update Dashboard comparing 1990s and Present Day Philippine popular culture across social, economic, political, and cultural lenses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
